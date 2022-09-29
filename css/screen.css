@@ -31,6 +31,9 @@
     --global-color-alpha-transparent: hsl(var(--global-color-alpha-hsl) / .75);
     --global-color-alpha-x-transparent: hsl(var(--global-color-alpha-hsl) / .3);
 
+    /* Het is eigenlijk beter om de xxxxx te vervangen door een honderdtal.
+    Op die manier kan je nog 99 variaties tussen elke tint plaatsen */
+
     --global-color-neutral-xxxx-light: #F5F6FA;
     --global-color-neutral-xxx-light: #E2E3E7;
     --global-color-neutral-xx-light: #caccd4;
@@ -67,6 +70,14 @@
     /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
     /*  = 72px */
+
+    /* input colors */
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
 }
 
 /*------------------------------------*\
@@ -601,10 +612,10 @@ input::placeholder {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border: var(--global-borderWidth) solid var(--global-input-borderColor);
     border-radius: var(--global-borderRadius);
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: White;
+    color: var(--global-input-color);
+    background-color: var(--global-input-backgroundColor);
     font-family: inherit;
     font-size: 16px;
     line-height: calc(var(--global-baseline) * 3);
@@ -614,13 +625,13 @@ input::placeholder {
 }
 
 .c-input:hover {
-    border-color: var(--global-color-neutral-xx-light);
+    border-color: var(--global-input-hover-borderColor);
 }
 
 .c-input:focus,
 .c-input:active {
-    border-color: var(--global-color-alpha);
-    box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: 0 0 0 3px var(--global-input-boxShadow);
 }
 
 /* option input for checkboxes and radio buttons */
@@ -679,6 +690,20 @@ input::placeholder {
     background-color: var(--global-color-alpha-dark);
     box-shadow: none;
 }
+
+
+label svg {
+    display: none;
+}
+
+
+.c-option--hidden:checked + label svg {
+    /* background-color: hotpink; */
+    display: block;
+}
+
+
+
 
 /*------------------------------------*\
 #UTILITIES
