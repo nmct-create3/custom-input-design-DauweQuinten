@@ -78,6 +78,9 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+
+    /* input transition */
+    --global-input-transition: var(--global-input-transition);
 }
 
 /*------------------------------------*\
@@ -692,18 +695,81 @@ input::placeholder {
 }
 
 
-label svg {
-    display: none;
+
+.c-custom-option{
+    display: flex;
+}
+
+.c-custom-option__symbol{
+    opacity: 0;
+    display: block;
+
+    transition: opacity 200ms ease-in;
 }
 
 
-.c-option--hidden:checked + label svg {
-    /* background-color: hotpink; */
+.c-option--hidden:checked + label .c-custom-option__symbol {
+    opacity: 1;
     display: block;
 }
 
+.c-custom-option__fake-input{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    border-width: var(--global-borderWidth);
+    border-style: solid;
+    border-color: var(--global-input-borderColor);
+    margin-right: 8px;
+
+    /* align items horizontal */
+    justify-content: center;
+
+    /* align items vertical */
+    align-items: center;
+}
+
+.c-custom-option__fake-input--checkbox{
+    border-radius: var(--global-borderRadius);
+}
+
+.c-custom-option__fake-input--radio{
+    border-radius: 100%;
+}
 
 
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+
+    /* Stuff for the checkbox icon... */
+    width: 10px;
+    height: 10px;
+    fill: var(--global-color-alpha);    
+
+  }
+  
+  .c-custom-option__fake-input--radio .c-custom-option__symbol {
+
+    /* Stuff for the radio button icon... */
+    width: 6px;
+    height: 6px;
+    background-color: var(--global-color-alpha);    
+    border-radius: 100%;
+  }
+
+
+
+  
+  .c-option--hidden:hover + .c-custom-option .c-custom-option__fake-input{
+
+        border-color: #81ADF0;
+        box-shadow: var(--global-input-boxShadow);
+  }
+
+  .c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input{
+
+        border-color: #81ADF0;
+        box-shadow: var(--global-input-boxShadow);
+  }
 
 /*------------------------------------*\
 #UTILITIES
