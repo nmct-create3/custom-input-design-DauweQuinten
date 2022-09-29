@@ -80,7 +80,7 @@
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
 
     /* input transition */
-    --global-input-transition: var(--global-input-transition);
+    --global-input-transition: 200ms ease-in;
 }
 
 /*------------------------------------*\
@@ -704,7 +704,7 @@ input::placeholder {
     opacity: 0;
     display: block;
 
-    transition: opacity 200ms ease-in;
+    transition: opacity var(--global-input-transition);
 }
 
 
@@ -747,6 +747,7 @@ input::placeholder {
 
   }
   
+
   .c-custom-option__fake-input--radio .c-custom-option__symbol {
 
     /* Stuff for the radio button icon... */
@@ -779,6 +780,74 @@ input::placeholder {
   .c-option-list__item{
     margin-bottom: 12px;
   }
+
+
+  .c-custom-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .c-custom-toggle__fake-input{
+    
+    --custom-input-backgroundColor: var(--global-color-neutral-xxxx-light);
+    
+    
+    display: flex;
+    margin-right: var(--global-whitespace-md);
+    width: 48px;
+    height: 24px;
+    border-radius: 24px;
+    border-style: solid;
+    border-width: var(--global-borderWidth);
+    border-color: var(--global-input-borderColor);
+    background-color: var(--custom-input-backgroundColor);
+  }
+
+  .c-custom-toggle__fake-input::after{
+    content: '';
+    display: block;
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
+    background-color: var(--global-input-backgroundColor);
+
+    transition: all var(--global-input-transition);
+  }
+
+  .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    transform: translateX(24px);
+  }
+
+  /* .c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    width: 30px;
+  } */
+
+
+  .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input{
+    background-color: var(--global-color-alpha);
+    border-color: var(--global-color-alpha-dark);
+    transition: all var(--global-input-transition);
+  }
+
+
+  .c-option--hidden:hover + .c-custom-toggle .c-custom-toggle__fake-input{
+    border-color: #81ADF0;
+    box-shadow: var(--global-input-boxShadow);
+  }
+
+  .c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input{
+    border-color: #81ADF0;
+    box-shadow: var(--global-input-boxShadow);
+  }
+
+
+
+  .c-custom-toggle__symbol{
+    /* moet block zijn! anders geen width en height */
+    display: block;
+  }
+
 
 /*------------------------------------*\
 #UTILITIES
