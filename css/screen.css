@@ -661,6 +661,7 @@ input::placeholder {
     padding-bottom: 0;
 }
 
+
 /*
     Component: Button
     ---
@@ -792,7 +793,6 @@ input::placeholder {
     
     --custom-input-backgroundColor: var(--global-color-neutral-xxxx-light);
     
-    
     display: flex;
     margin-right: var(--global-whitespace-md);
     width: 48px;
@@ -802,6 +802,13 @@ input::placeholder {
     border-width: var(--global-borderWidth);
     border-color: var(--global-input-borderColor);
     background-color: var(--custom-input-backgroundColor);
+  }
+  
+  .c-custom-toggle__label--inverted{
+    flex-direction: row-reverse;
+  }
+  .c-custom-toggle__label--inverted .c-custom-toggle__fake-input{
+    margin-left: var(--global-whitespace-md);
   }
 
   .c-custom-toggle__fake-input::after{
