@@ -71,6 +71,11 @@
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
     /*  = 72px */
 
+
+    --global-page-color: var(--color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--color-neutral-xxxx-light);
+
+
     /* input colors */
     --global-input-backgroundColor: White;
     --global-input-color: var(--global-color-neutral-xxxx-dark);
@@ -81,6 +86,13 @@
 
     /* input transition */
     --global-input-transition: 200ms ease-in;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
+    }
 }
 
 /*------------------------------------*\
@@ -96,12 +108,13 @@
 html {
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-page-color);
+    background-color: var(--global-page-backgroundColor);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 
 *,
 *:before,
