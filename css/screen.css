@@ -87,9 +87,7 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
-    --global-logoPath1-color: var(--global-color-neutral-xxxx-dark);
-    --global-logoPath2-color: var(--global-color-alpha);
-    --global-logoPath3-color: var(--global-color-alpha-x-dark);
+
 
     /* input transition */
     --global-input-transition: 200ms ease-in;
@@ -564,15 +562,27 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-logoPath1-color);
+    /* local variable met waarde van global variabel */
+    fill: var(--logo__path--1-fill, var(--global-color-neutral-xxxx-dark));
 }
 
 .c-logo__path--2 {
-    fill: var(--global-logoPath2-color);
+    /* local variable met waarde van global variabel */
+    fill: var(--logo__path--2-fill, var(--global-color-alpha));
 }
 
 .c-logo__path--3 {
-    fill: var(--global-logoPath3-color);
+    /* local variable met waarde van global variabel */
+    fill: var(--logo__path--3-fill, var(--global-color-alpha-x-dark));
+}
+
+@media(prefers-color-scheme: dark){
+ .c-logo{
+    /* Change local variables to create dark theme */
+    --logo__path--1-fill: White;
+    --logo__path--2-fill: var(--logo__path--1-fill);
+    --logo__path--3-fill: var(--logo__path--1-fill);
+ }
 }
 
 /*
