@@ -46,6 +46,7 @@
     --global-color-neutral-xxx-dark: #35374d;
     --global-color-neutral-xxxx-dark: #20223a;
 
+
     /* border stuff */
     --global-borderRadius: 3px;
     --global-borderWidth: 1px;
@@ -73,8 +74,11 @@
 
 
     --global-page-color: var(--color-neutral-xxxx-dark);
-    --global-page-backgroundColor: var(--color-neutral-xxxx-light);
-
+    --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
+    --global-card-backgroundColor: white;
+    --global-footer-borderColor: var(--global-color-neutral-xxx-light);
+    --global-checkbox-backgroundColor: white;
+    --global-label-color: var( --global-color-neutral-xx-dark);
 
     /* input colors */
     --global-input-backgroundColor: White;
@@ -83,6 +87,9 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    --global-logoPath1-color: var(--global-color-neutral-xxxx-dark);
+    --global-logoPath2-color: var(--global-color-alpha);
+    --global-logoPath3-color: var(--global-color-alpha-x-dark);
 
     /* input transition */
     --global-input-transition: 200ms ease-in;
@@ -91,7 +98,20 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --global-page-color: White;
-        --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
+        --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-card-backgroundColor: var(--global-color-neutral-xxx-dark);
+        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-input-color: White;
+        --global-input-borderColor: var(--global-color-neutral-xxxx-dark);
+        --global-footer-borderColor: var(--global-color-neutral-xxxx-dark);
+        --global-checkbox-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-logoPath1-color: var(--global-color-neutral-xxxx-dark);
+        --global-logoPath2-color: var(--global-color-neutral-xxxx-dark);
+        --global-logoPath3-color: var(--global-color-neutral-xxxx-dark);
+        --global-logoPath1-color: white;
+        --global-logoPath2-color: white;
+        --global-logoPath3-color: white;
+        --global-label-color: var(--global-color-neutral-x-light);
     }
 }
 
@@ -544,15 +564,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--global-logoPath1-color);
 }
 
 .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--global-logoPath2-color);
 }
 
 .c-logo__path--3 {
-    fill: var(--global-color-alpha-x-dark);
+    fill: var(--global-logoPath3-color);
 }
 
 /*
@@ -562,7 +582,8 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    /* background-color: var(--global-input-backgroundColor); */
+    background-color: var(--global-card-backgroundColor);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
@@ -577,7 +598,7 @@ input::placeholder {
 
 .c-card__footer {
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border-top: var(--global-borderWidth) solid var(--global-footer-borderColor);
 }
 
 .c-card__title {
@@ -667,7 +688,7 @@ input::placeholder {
     font-size: 14px;
     padding-bottom: var(--global-whitespace-xs);
     line-height: calc(var(--global-baseline) * 2);
-    color: var(--global-color-neutral-xx-dark);
+    color: var(--global-label-color);
 }
 
 .c-label--option {
@@ -745,6 +766,7 @@ input::placeholder {
 
 .c-custom-option__fake-input--checkbox{
     border-radius: var(--global-borderRadius);
+    background-color: var(--global-checkbox-backgroundColor);
 }
 
 .c-custom-option__fake-input--radio{
@@ -757,8 +779,7 @@ input::placeholder {
     /* Stuff for the checkbox icon... */
     width: 10px;
     height: 10px;
-    fill: var(--global-color-alpha);    
-
+    fill: var(--global-color-alpha); 
   }
   
 
@@ -768,6 +789,7 @@ input::placeholder {
     width: 6px;
     height: 6px;
     background-color: var(--global-color-alpha);    
+    /* background-color: red;     */
     border-radius: 100%;
   }
 
